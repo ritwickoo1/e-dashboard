@@ -20,7 +20,7 @@
   text-align: center;
   width: 100%;
 }
-.register{
+.register, .product{
   margin-top: 10px;
   margin-left: 30%;
 }
