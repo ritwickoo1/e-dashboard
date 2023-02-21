@@ -40,4 +40,45 @@ app.get("/products", async (req, res) => {
         res.status(401).send({error: 'No Products Found'});
     }
 });
+
+app.delete("/product/:id", async (req, res) => {
+    const result = await Product.deleteOne({_id: req.params.id});
+    if(result.deletedCount === 1) {
+        res.send({message: 'Product Deleted Successfully'});
+    } else {
+        res.status(401).send({error: 'Product Not Found'});
+    }
+});
+app.get("/search/:key" , async (req, res) => {
+    const result = await Product.find({
+        $or: [
+            {name: {$regex: req.params.key}},
+        ]
+    });
+    if(result) {
+        res.send(result);
+    } else {
+        res.status(401).send({error: 'Product Not Found'});
+    }
+});
+
+app.get("/product/:id", async (req, res) => {
+    const result = await Product.findOne({_id: req.params.id});
+    if(result) {
+        res.send(result);
+    } else {
+        res.status(401).send({error: 'Product Not Found'});
+    }
+});
+
+app.put("/product/:id", async (req, res) => {
+    const result = await Product.updateOne({_id: req.params.id}, req.body);
+    if(result) {
+        res.send({message: 'Product Updated Successfully'});
+    } else {
+        res.status(401).send({error: 'Product Not Found'});
+    }
+    
+});
+
 app.listen(5000);
