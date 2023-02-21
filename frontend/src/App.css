@@ -44,6 +44,19 @@
   padding: 7px;
   border: 1px solid skyblue;
 }
+.product-list{
+  margin-top: 50px;
+  text-align: center;
+}
+.product-list ul li{
+  display: inline-block;
+  width: 150px;
+  padding: 5px;
+  border: 1px solid skyblue;
+}
+.product-list ul{
+  margin: 0;
+}
 .nav-ul {
   margin: 0;
   background-color: skyblue;
