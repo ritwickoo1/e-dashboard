@@ -24,6 +24,12 @@
   margin-top: 10px;
   margin-left: 30%;
 }
+.invalid-input{
+  color: red;
+  margin-top: -20px;
+  margin-left: 20px;
+  display: block;
+}
 .btn{
   margin: 25px;
   padding: 10px;

@@ -31,4 +31,9 @@ app.post('/add-Product', async (req, res) => {
     let result = await product.save();
     res.send(result);
 });
+
+app.get("/products", async (req, res) => {
+    let products = await Product.find();
+    res.send(products);
+});
 app.listen(5000);
