@@ -6,7 +6,11 @@ const ProductList = () => {
         getProducts();
     }, []);
     const getProducts = async () => {
-        let result = await fetch("http://localhost:5000/products");
+        let result = await fetch("http://localhost:5000/products",{
+            headers:{
+                authorization: localStorage.getItem("token")
+            }
+        });
         result = await result.json();
         setProducts(result);
     }

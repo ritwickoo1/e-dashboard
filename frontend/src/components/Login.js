@@ -22,10 +22,11 @@ const Login = () => {
         });
         result = await result.json();
         console.warn("result", result);
-        if(!result.name){
+        if(!result.auth){
             alert("Invalid Login");
         }else{
-            localStorage.setItem("user", JSON.stringify(result));
+            localStorage.setItem("user", JSON.stringify(result.user));
+            localStorage.setItem("token",JSON.stringify(result.token));
             Navigate("/");
         }
     }
